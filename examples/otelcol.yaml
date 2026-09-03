@@ -1,0 +1,27 @@
+# Sample runtime configuration for a collector built with examples/builder-config.yaml.
+#
+# Run with:
+#   ./otelcol-service/otelcol-service --config examples/otelcol.yaml
+receivers:
+  system_service:
+    collection_interval: 30s
+    # include_services:   # glob patterns; empty or unset means all services
+    #   - nginx
+    #   - "sshd*"
+    # exclude_services:
+    #   - "systemd-*"
+    # scope: system       # Linux only: system or user
+
+processors:
+  batch:
+
+exporters:
+  debug:
+    verbosity: detailed
+
+service:
+  pipelines:
+    metrics:
+      receivers: [system_service]
+      processors: [batch]
+      exporters: [debug]

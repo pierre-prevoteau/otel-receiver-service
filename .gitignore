@@ -1,0 +1,17 @@
+# Build output from the OpenTelemetry Collector Builder (OCB)
+/otelcol-service/
+/dist/
+/build/
+
+# Go build artifacts
+*.test
+*.out
+*.exe
+
+# Local mdatagen tool module cache (see Makefile generate target)
+/.tools/
+
+# Editor / OS noise
+.DS_Store
+.idea/
+.vscode/

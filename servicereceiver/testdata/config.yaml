@@ -1,0 +1,10 @@
+system_service:
+
+system_service/custom:
+  collection_interval: 30s
+  include_services:
+    - nginx
+    - "sshd*"
+  exclude_services:
+    - "systemd-*"
+  scope: user

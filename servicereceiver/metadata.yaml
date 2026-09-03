@@ -1,0 +1,42 @@
+type: system_service
+display_name: System Service Receiver
+
+description: The system service receiver collects the state of locally running services, using systemd on Linux and the Service Control Manager on Windows.
+
+status:
+  class: receiver
+  stability:
+    alpha: [metrics]
+  distributions: []
+  codeowners:
+    active: [pierre-prevoteau]
+  unsupported_platforms: [darwin]
+
+attributes:
+  system.service.name:
+    description: Name of the service. On Linux this is the systemd unit name without the ".service" suffix.
+    type: string
+    requirement_level: required
+
+metrics:
+  system.service.state:
+    description: Current state of the service, as a platform independent integer code.
+    extended_documentation: >
+      State codes are the same on every platform:
+      0 - unknown,
+      1 - stopped,
+      2 - starting,
+      3 - stopping,
+      4 - running,
+      5 - paused,
+      6 - failed.
+    enabled: true
+    stability: alpha
+    unit: "{state}"
+    gauge:
+      value_type: int
+    attributes: [system.service.name]
+
+tests:
+  skip_lifecycle: true
+  config:
