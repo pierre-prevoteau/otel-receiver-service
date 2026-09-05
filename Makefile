@@ -1,6 +1,6 @@
 # Makefile for the unified system service OpenTelemetry receiver.
 
-MDATAGEN_VERSION ?= v0.158.0
+MDATAGEN_VERSION ?= v0.160.0
 TOOLS_DIR := $(CURDIR)/.tools/mdatagen
 METADATA := $(CURDIR)/servicereceiver/metadata.yaml
 

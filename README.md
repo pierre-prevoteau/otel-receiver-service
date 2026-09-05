@@ -59,7 +59,7 @@ receivers:
 ### 1. Install OCB
 
 ```bash
-go install go.opentelemetry.io/collector/cmd/builder@v0.158.0
+go install go.opentelemetry.io/collector/cmd/builder@v0.160.0
 ```
 
 ### 2. Build
